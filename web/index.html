@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lumina — movies, matched to you</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <div id="onboarding" class="onboarding hidden" role="dialog" aria-labelledby="onboard-title">
+      <div class="onboard-inner">
+        <p class="eyebrow">Lumina</p>
+        <h1 id="onboard-title">What worlds do you want to live in?</h1>
+        <p class="lede">
+          Pick a few favorite genres. We’ll mix them with your searches to light up the next watch —
+          trained on 100,000 MovieLens ratings.
+        </p>
+        <div id="genre-grid" class="genre-grid"></div>
+        <div class="onboard-actions">
+          <button id="onboard-skip" class="btn ghost" type="button">Skip for now</button>
+          <button id="onboard-go" class="btn gold" type="button" disabled>Enter Lumina</button>
+        </div>
+      </div>
+    </div>
+
+    <header class="nav">
+      <a class="logo" href="#/" aria-label="Lumina home">
+        <span class="logo-mark"></span>
+        Lumina
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#/" data-nav="home">Home</a>
+        <a href="#/browse" data-nav="browse">Browse</a>
+        <a href="#/saved" data-nav="saved">Saved</a>
+      </nav>
+      <div class="search-wrap">
+        <label class="sr-only" for="search-input">Search movies</label>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search titles or genres…"
+          autocomplete="off"
+        />
+        <kbd>/</kbd>
+        <div id="suggest" class="suggest hidden" role="listbox"></div>
+      </div>
+      <button id="profile-btn" class="avatar" type="button" aria-label="Open profile">You</button>
+    </header>
+
+    <main id="app"></main>
+
+    <aside id="drawer" class="drawer hidden" aria-hidden="true">
+      <div class="drawer-panel">
+        <button class="icon-btn close-drawer" type="button" aria-label="Close">×</button>
+        <p class="eyebrow">Your taste</p>
+        <h2>Profile</h2>
+        <p class="muted">Favorite genres steer every row. Search history and saves sharpen it further.</p>
+        <div id="profile-genres" class="chip-edit"></div>
+        <h3>Search history</h3>
+        <ul id="history-list" class="history-list"></ul>
+        <button id="clear-history" class="btn ghost small" type="button">Clear history</button>
+        <h3>Demo a MovieLens viewer</h3>
+        <p class="muted">See collaborative-filtering picks for one of the original 943 raters.</p>
+        <div class="demo-row">
+          <input id="demo-user" type="number" min="1" max="943" placeholder="User id 1–943" />
+          <button id="demo-go" class="btn gold small" type="button">Watch as them</button>
+        </div>
+        <p id="demo-meta" class="muted"></p>
+        <button id="demo-clear" class="btn ghost small hidden" type="button">Return to my taste</button>
+      </div>
+    </aside>
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true"></div>
+    <div id="toast" class="toast hidden" role="status"></div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
