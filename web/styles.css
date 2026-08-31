@@ -248,6 +248,7 @@ main { padding-bottom: 80px; min-height: calc(100vh - var(--nav-h)); }
 .rail-btn.right { right: 8px; }
 
 .card {
+  width: 100px;
   flex: 0 0 168px;
   scroll-snap-align: start;
   cursor: pointer;
