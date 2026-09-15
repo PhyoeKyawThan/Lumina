@@ -12,7 +12,7 @@ Thumbs.db
 .vscode/
 *.swp
 *.tmp
-*.arff
+# *.arff
 generate_paper_data.py
 dataset_cleaner.py
 *.tex
